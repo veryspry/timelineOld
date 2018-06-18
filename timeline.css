@@ -1,0 +1,82 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ======================================
+    Navbar
+====================================== */
+/* Hide dropdown menu on bigger screens */
+#small-navigation {
+  display: none;
+}
+
+nav {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  position: fixed;
+  top:0;
+  z-index: 1;
+}
+
+nav li {
+  list-style: none;
+  margin: 0 .25vw;
+  display: inline-block;
+  text-decoration: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 100;
+  margin: 0 20px;
+}
+
+.nav-icon a:hover {
+  color: #ff0000;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
+}
+
+.fa-facebook,
+.fa-twitter,
+.fa-github,
+.fa-instagram {
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
+}
+
+.fa-twitter,
+.fa-github,
+.fa-instagram {
+  padding:10px 12px;
+}
+
+.fa-facebook {
+    padding:10px 14px;
+}
+
+.fa-facebook:hover {
+    background-color: #3d5b99;
+}
+
+.fa-github:hover {
+  background-color: #ebe8ec;
+}
+
+.fa-twitter:hover {
+    background-color: #00aced;
+}
+
+.fa-instagram:hover {
+    background-color: #cc2d8a;
+}
