@@ -14,14 +14,17 @@ db.sync({force: true})
     let learned = ['I learned some things!', 'I learned some more things!!!']
     let coffee = ['yirgicheffe', 'Guatemala', 'Peru']
     let music = ['Zeppelin', 'Beatles', 'Jay Z']
-    let coolThings = ['this article!', 'how to be a baller', 'setting up this apppp']
+    let coolThingsIFound = ['this article!', 'how to be a baller', 'setting up this apppp']
+    let coolThingsIFoundURL = 'google.com'
 
     for (let i=0; i<=10; i++) {
       seed.push(Day.create({
         date: date,
-        learned: learned[i % learned.length],
+        whatILearned: learned[i % learned.length],
         coffee: coffee[i % coffee.length],
-        music: music[i % music.length]
+        music: music[i % music.length],
+        coolThingsIFound: coolThingsIFound[i % coolThingsIFound.length],
+        coolThingsIFoundURL: coolThingsIFoundURL
       }))
     }
     return Promise.all(seed)

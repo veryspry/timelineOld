@@ -1,8 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-// const nodemailer = require('nodemailer');
-// const path = require('path');
-// const validator = require('express-validator');
+// const models = require('./models/index')
 
 const app = express()
 const port = 5000
@@ -16,8 +14,15 @@ const timelineRoutes = require('./routes')
 app.use(timelineRoutes)
 
 
-const db = require('./models/index');
+const models = require('./models');
 
+(async function dbSync() {
+	try {
+		await models.Day.sync() // {force: true}
+	} catch (err) {
+		next(err)
+	}
+})()
 
 
 // handle 404 errors
@@ -47,3 +52,17 @@ app.listen(port,
 	()  => {
   console.log(`The app is running on port ${port}`)
 })
+
+// const init = async () => {
+//   //sync creates the table if it does not exist. alter true creates the tables and makes any changes to keep the modules in sync
+// 	try {
+// 	  await models.Day.sync() // {force: true}
+// 	  app.listen(PORT, () => {
+// 	    console.log(`Server is listening on port ${PORT}!`);
+// 	  })
+// 	} catch (err) {
+// 		next(err)
+// 	}
+// }
+
+// init();

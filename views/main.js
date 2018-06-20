@@ -1,7 +1,8 @@
 const html = require("html-template-tag")
 const layout = require("./layout")
 
-module.exports = () => html `   <html lang="en">
+
+module.exports = (posts) => html `<html lang="en">
     <head>
       <title>TimeLine</title>
 
@@ -26,48 +27,25 @@ module.exports = () => html `   <html lang="en">
 
       <div class="header-div"></div>
 
-      <div class="day-wrapper">
-        <div class="date-div">
-          <h5 class="date">17 June, 2018</h5>
+
+      ${posts.reverse().map(post => html`
+        <div class="day-wrapper">
+          <div class="date-div">
+            <h5 class="date">${post.date}</h5>
+          </div>
+
+          <h3 class="learned">${post.whatILearned}</h3>
+
+          <h3 class="coffee">☕ ${post.coffee} ☕</h3>
+          <h3 class="music">🎶 ${post.music} 🎶</h3>
+          <h3 class="cool-things">Things I found today:
+            <a href="${post.coolThingsIFoundURL}">${post.coolThingsIFound}</a> </h3>
         </div>
 
-        <h3 class="learned">Today I learned all about JavaScript Promises and how we can you async/await, callbacks & .try()/.catch() all for many of the same things</h3>
+        <div class="day-seperator">
+        </div>
+        `)}
 
-        <h3 class="coffee">☕ yirgicheffe ☕</h3>
-        <h3 class="music">🎶 Zeppelin IV, Watch the Throne - Jay-Z & Kanye 🎶</h3>
-        <h3 class="cool-things">Things I found today: <a href="http://google.com">google</a> </h3>
-      </div>
-
-      <div class="day-seperator">
-      </div>
-
-      <div class="day-wrapper">
-
-        <h5 class="date">17 June, 2018</h5>
-        <h3 class="coffee">yirgicheffe</h3>
-        <h3 class="music">Zeppelin</h3>
-        <h3 class="cool-things">Here are some dope resources: <a href="http://google.com">google</a> </h3>
-        <h3 class="learned">Today I learned all about JavaScript Promises and how we can you async/await, callbacks & .try()/.catch() all for many of the same things</h3>
-
-      </div>
-      <div class="day-wrapper">
-
-        <h5 class="date">17 June, 2018</h5>
-        <h3 class="coffee">yirgicheffe</h3>
-        <h3 class="music">Zeppelin</h3>
-        <h3 class="cool-things">Here are some dope resources: <a href="http://google.com">google</a> </h3>
-        <h3 class="learned">Today I learned all about JavaScript Promises and how we can you async/await, callbacks & .try()/.catch() all for many of the same things</h3>
-
-      </div>
-      <div class="day-wrapper">
-
-        <h5 class="date">17 June, 2018</h5>
-        <h3 class="coffee">yirgicheffe</h3>
-        <h3 class="music">Zeppelin</h3>
-        <h3 class="cool-things">Here are some dope resources: <a href="http://google.com">google</a> </h3>
-        <h3 class="learned">Today I learned all about JavaScript Promises and how we can you async/await, callbacks & .try()/.catch() all for many of the same things</h3>
-
-      </div>
 
     </body>
 

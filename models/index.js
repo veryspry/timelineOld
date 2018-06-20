@@ -1,24 +1,27 @@
 const Sequelize = require('sequelize')
-const db = new Sequelize('postgres://localhost:5432/timeline')
+const db = new Sequelize('postgres://localhost:5432/timeline', { logging: false})
 
 
 const Day = db.define('days', {
   date: {
-    type: Sequelize.DATE
+    type: Sequelize.TEXT
   },
-  learned: {
-    type: Sequelize.STRING //type: Sequelize.TEXT???
+  whatILearned: {
+    type: Sequelize.TEXT
   },
   coffee: {
-    type: Sequelize.STRING
+    type: Sequelize.TEXT
   },
   music: {
-    type: Sequelize.STRING
+    type: Sequelize.TEXT
   },
-  coolThings: {
-    type: Sequelize.STRING
+  coolThingsIFound: {
+    type: Sequelize.ARRAY(Sequelize.TEXT)
+  },
+  coolThingsIFoundURL: {
+    type: Sequelize.ARRAY(Sequelize.TEXT)
   }
 })
 
 
-module.exports = { db, Day }
+module.exports = { Day, db }
